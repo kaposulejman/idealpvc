@@ -20,5 +20,5 @@ async function changeLanguage(lang) {
 }
 
 // Automatski postavi zadnji odabrani jezik
-const savedLang = localStorage.getItem('language') || 'en';
+const savedLang = localStorage.getItem('language') || 'bs';
 changeLanguage(savedLang);
