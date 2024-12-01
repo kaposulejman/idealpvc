@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 20px;
-    background-color: #f9f9f9;
+    background: linear-gradient(to right, #232526, #414345);
 }
 
 .language-selector {
