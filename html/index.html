@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDEAL</title>
-    <link rel="ikona" type="image/x-icon" href="img/ikonaideal.ico">
+    <link rel="icon" type="image/png" href="img/ideal_ico_32x32.png">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>Ako ovo radi, vidjećeš favicon u kartici!</h1>
+    <!-- Izbor jezika -->
+    <div class="language-selector">
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('bs')">Bosanski</button>
+    </div>
+
+    <!-- Sadržaj stranice -->
+    <h1 id="title">Welcome</h1>
+    <p id="description">This is a multilingual website example.</p>
+
+    <!-- Povezivanje sa JavaScript fajlom -->
+    <script src="js/script.js"></script>
 </body>
 </html>
