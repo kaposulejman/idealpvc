@@ -11,7 +11,7 @@ nav {
     top: 0;
     width: 100%; /* Širina navigacijskog bara */
     height: 100px; /* Visina navigacijskog bara */
-    background-color: #00000088; /* Boja pozadine */
+    background-color: #000000d0; /* Boja pozadine */
     color: white;
     display: flex;
     z-index: 100; /* Da bude iznad ostalih elemenata */
