@@ -1,26 +1,31 @@
+/* Postavke za cijelu stranicu */
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 20px;
-    background: linear-gradient(to right, #232526, #414345);
+    background-color: rgb(180, 176, 176);
 }
 
-.language-selector {
-    margin-bottom: 20px;
-}
-
-button {
-    margin: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
+/* Navigation bar */
+nav {
+    position: fixed; /* Ostaje na vrhu stranice */
+    top: 0;
+    width: 100%; /* Širina navigacijskog bara */
+    height: 100px; /* Visina navigacijskog bara */
+    background-color: #00000088; /* Boja pozadine */
     color: white;
-    transition: background-color 0.3s;
+    display: flex;
+    z-index: 100; /* Da bude iznad ostalih elemenata */
 }
-
-button:hover {
-    background-color: #0056b3;
+.navigation_photo {
+    position: left;
+    padding: 20px 40px;
+}
+.naslovna {
+    position: left;
+    padding-top: 40px;
+}
+/* Glavni sadržaj */
+main {
+    margin-top: 100px; /* Gurni sadržaj ispod navigacijskog bara */
+    padding: 20px;
 }
