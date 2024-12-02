@@ -1,24 +1,51 @@
-// Funkcija za promjenu jezika
-async function changeLanguage(lang) {
-    try {
-        // Učitaj JSON fajl za odabrani jezik
-        const response = await fetch(`lang/${lang}.json`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const translations = await response.json();
+// Funkcija za otvaranje i zatvaranje sidebar-a
+function toggleNav() {
+    const menuContainer = document.querySelector('.menu-container');
+    const menuButton = document.getElementById('menuButton');
 
-        // Ažuriraj sadržaj stranice
-        document.getElementById('title').textContent = translations.title;
-        document.getElementById('description').textContent = translations.description;
-
-        // Spremi jezik u localStorage
-        localStorage.setItem('language', lang);
-    } catch (error) {
-        console.error('Error loading language file:', error);
+    if (menuContainer.style.left === '0px') {
+        menuContainer.style.left = '-350px'; // Sakrij meni
+        menuButton.style.marginLeft = '0'; // Dugme se vraća
+        menuButton.textContent = '▶'; // Promijeni strelicu na desno
+    } else {
+        menuContainer.style.left = '0'; // Prikaži meni
+        menuButton.style.marginLeft = '350px'; // Dugme se pomjera
+        menuButton.textContent = '◀'; // Promijeni strelicu na lijevo
     }
 }
 
-// Automatski postavi zadnji odabrani jezik
-const savedLang = localStorage.getItem('language') || 'bs';
-changeLanguage(savedLang);
+// Funkcija za prikaz sekcija
+function showSection(sectionId) {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+    const activeSection = document.getElementById(sectionId);
+    activeSection.classList.add('active');
+    const menuContainer = document.querySelector('.menu-container');
+    menuContainer.style.left = '-350px'; // Sakrij meni nakon klika
+    const menuButton = document.getElementById('menuButton');
+    menuButton.style.marginLeft = '0'; // Dugme se vraća
+    menuButton.textContent = '▶'; // Promijeni strelicu na desno
+}
+
+// Funkcija za promjenu jezika
+const languageElements = document.querySelectorAll('[data-bs]');
+const flags = document.querySelectorAll('.flag');
+
+function changeLanguage(language) {
+    languageElements.forEach(element => {
+        const newText = element.getAttribute(`data-${language}`);
+        if (newText) {
+            element.textContent = newText;
+        }
+    });
+}
+
+// Event listeneri za zastave
+flags.forEach(flag => {
+    flag.addEventListener('click', () => {
+        const language = flag.id; // Jezik određuje ID zastave
+        changeLanguage(language);
+    });
+});

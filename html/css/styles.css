@@ -1,31 +1,121 @@
-/* Postavke za cijelu stranicu */
-body {
+/* Reset za osnovne margine i paddinge */
+html, body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: rgb(180, 176, 176);
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    overflow: hidden; /* Uklanja vertikalni scroll */
 }
 
-/* Navigation bar */
-nav {
-    position: fixed; /* Ostaje na vrhu stranice */
+/* Pozadinska slika */
+.background-image {
+    position: fixed;
     top: 0;
-    width: 100%; /* Širina navigacijskog bara */
-    height: 100px; /* Visina navigacijskog bara */
-    background-color: #000000d0; /* Boja pozadine */
-    color: white;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ispod svih elemenata */
+}
+
+.background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Top bar */
+.top-bar {
     display: flex;
-    z-index: 100; /* Da bude iznad ostalih elemenata */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(245, 245, 220, 0.6);
+    color: #333;
+    position: sticky;
+    top: 0;
+    z-index: 1002;
+    height: 60px;
+    width: 100%;
 }
-.navigation_photo {
-    position: left;
-    padding: 20px 40px;
+
+/* Logo */
+.logo {
+    height: 40px;
+    width: auto;
 }
-.naslovna {
-    position: left;
-    padding-top: 40px;
+
+/* Jezičke zastave */
+.language-switcher {
+    display: flex;
+    gap: 15px; /* Veći razmak između zastava */
 }
-/* Glavni sadržaj */
-main {
-    margin-top: 100px; /* Gurni sadržaj ispod navigacijskog bara */
+
+.flag {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(211, 211, 192, 0.6);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.flag:hover {
+    transform: scale(1.1);
+    border-color: rgba(181, 181, 161, 0.8);
+}
+
+/* Sidebar */
+.menu-container {
+    position: fixed;
+    top: 80px; /* Spušteno ispod top bara */
+    left: -350px; /* Skriven izvan ekrana */
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    z-index: 1003;
+}
+
+/* Sidebar sadržaj */
+.side-menu {
+    width: 350px; /* Širina menija */
+    height: calc(100% - 80px); /* Prilagodba visini ispod top bara */
+    background-color: rgba(245, 245, 220, 0.9);
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Dugme za otvaranje/zatvaranje menija */
+.menu-button {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(245, 245, 220, 0.8);
+    color: #333;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.2);
+    margin-left: -50px; /* Dugme izvan menija */
+    transition: all 0.3s ease;
+}
+
+/* Sekcije */
+section {
+    display: none;
+    padding: 20px;
+    color: #fff;
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+    min-height: calc(100vh - 80px); /* Prilagodba ispod top bara */
+    text-align: center;
+}
+
+section.active {
+    display: block;
 }

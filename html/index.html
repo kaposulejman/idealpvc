@@ -1,24 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IDEAL</title>
-    <!-- Poveznica sa css fajlom -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <nav>
-        <div class="navigation_photo">
-        <img src="img/ikonaideal.png">
-        </div>
-        <a class="naslovna">Naslovna</a>
-    </nav>
+    <!-- Pozadinska slika -->
+    <div class="background-image">
+        <img src="img/idealprezent1.jpg" alt="Pozadinska Slika">
+    </div>
 
+    <!-- Header sa top barom -->
+    <header>
+        <div class="top-bar">
+            <img src="img/ikonaideal.png" alt="Logo IDEAL" class="logo">
+            <div class="language-switcher">
+                <img src="img/bosnia-flag.png" alt="Bosanski" id="bs" class="flag">
+                <img src="img/uk-flag.png" alt="English" id="en" class="flag">
+                <img src="img/germany-flag.png" alt="Deutsch" id="de" class="flag">
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar i dugme -->
+    <div class="menu-container">
+        <nav id="sideMenu" class="side-menu">
+            <a href="#" onclick="showSection('home')" data-bs="Naslovna" data-en="Home" data-de="Startseite">Naslovna</a>
+            <a href="#" onclick="showSection('about')" data-bs="O nama" data-en="About Us" data-de="Über uns">O nama</a>
+            <a href="#" onclick="showSection('contact')" data-bs="Kontakt" data-en="Contact" data-de="Kontakt">Kontakt</a>
+        </nav>
+        <button id="menuButton" class="menu-button" onclick="toggleNav()">▶</button>
+    </div>
+
+    <!-- Glavni sadržaj -->
     <main>
-        <h2>Dobrodošli</h2>
-        <p>Ovo je primjer stranice sa navigation barom koji zauzima 1000px od vrha.</p>
-        <p>Dodajte vaš sadržaj ovdje.</p>
+        <section id="home" class="active">
+            <h1 data-bs="Dobrodošli" data-en="Welcome" data-de="Willkommen">Dobrodošli</h1>
+            <p data-bs="Ovo je početna sekcija stranice." data-en="This is the homepage section." data-de="Dies ist der Homepage-Bereich.">Ovo je početna sekcija stranice.</p>
+        </section>
+        <section id="about">
+            <h1 data-bs="O nama" data-en="About Us" data-de="Über uns">O nama</h1>
+            <p data-bs="Ovdje možete napisati nešto o vašoj kompaniji." data-en="Here you can write something about your company." data-de="Hier können Sie etwas über Ihr Unternehmen schreiben.">Ovdje možete napisati nešto o vašoj kompaniji.</p>
+        </section>
+        <section id="contact">
+            <h1 data-bs="Kontakt" data-en="Contact" data-de="Kontakt">Kontakt</h1>
+            <p data-bs="Dodajte vaše kontakt informacije ovdje." data-en="Add your contact information here." data-de="Fügen Sie hier Ihre Kontaktinformationen hinzu.">Dodajte vaše kontakt informacije ovdje.</p>
+        </section>
     </main>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
